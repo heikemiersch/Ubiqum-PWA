@@ -1,0 +1,29 @@
+* {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.page {
+    display: none;
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    padding: 1rem 2rem;
+}
+
+.active {
+    display: block;
+}
+
+#home {
+    background-image: url("spacexHome.jpg");
+}
+
+#launches {
+    background-image: url("spacexHome.jpg");
+}
+
+#rockets {
+    background-image: url("spacexHome.jpg");
+}
