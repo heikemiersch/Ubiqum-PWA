@@ -1,6 +1,6 @@
 console.log("start");
 
-// fetch data for page 1.1 //
+// fetch data for page 1 //
 fetch("https://api.spacexdata.com/v3/info", {
   method: "GET"
 })
@@ -9,21 +9,7 @@ fetch("https://api.spacexdata.com/v3/info", {
   })
   .then(function(info) {
     console.log(info.summary);
-  })
-  .catch(function(error) {
-    console.log(error, "<-- error");
-  });
-
-// fetch data for page 1.2 //
-fetch("https://api.spacexdata.com/v3/history", {
-  method: "GET"
-})
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(dataHistory) {
-    console.log(dataHistory[0].title);
-    console.log(dataHistory[0].details);
+    createFirstPage(info);
   })
   .catch(function(error) {
     console.log(error, "<-- error");
@@ -53,12 +39,13 @@ fetch("https://api.spacexdata.com/v3/rockets", {
   })
   .then(function(dataRockets) {
     console.log(dataRockets[0].rocket_name);
+    // createSecondPage(dataRockets);
   })
   .catch(function(error) {
     console.log(error, "<-- error");
   });
 
-// fetch data for page 3 (later use if statements)//
+// fetch data for page 3 (use if-statements later)//
 fetch("https://api.spacexdata.com/v3/launches", {
   method: "GET"
 })
@@ -74,25 +61,41 @@ fetch("https://api.spacexdata.com/v3/launches", {
     console.log(error, "<-- error");
   });
 
-// function backgroundImage(dataLaunches) {
-//   switch (dataLaunches[0]) {
-//     case "launches":
-//       document.body.style.backgroundImage = 'url("spacexHome.jpg")';
-//       break;
-//     case "rockets":
-//       document.body.style.backgroundImage = 'url("spacexRockets.jpg")';
-//       break;
-//     case "dragons":
-//       document.body.style.backgroundImage = 'url("spacexDragons.jpg")';
-//       break;
-//   }
-// }
-
 // grab elements by their id and put data in
+function createFirstPage(info) {
+  let logo = document.getElementById("logo");
+  logo.innerHTML = '<img src="spacexlogo.jpg">';
+  let home = document.getElementById("companyDescription");
+  home.innerHTML = info.summary;
+}
 
-// function createElements() {
-//   let companyInfo = document.getElementById("home");
-//   companyInfo.innerHTML = info.summary;
+// function createSecondPage(dataRockets) {
+//   let rocketsAndDragons = document.getElementById("rockets");
+//   rocketsAndDragons.innerHTML = dataRockets[0].rocket_name;
 // }
 
-// console.log(info.summary);
+// function createButtons() {
+//   let a = document.getElementById("home");
+//   let a = document.createElement("a");
+//   let link = document.createTextNode("This is link");
+//   a.appendChild(link);
+//   a.title = "Home";
+//   a.href = "index.html";
+//   document.body.appendChild(a);
+
+//   let b = document.getElementById("rockets");
+//   let b = document.createElement("a");
+//   let link = document.createTextNode("This is link");
+//   b.appendChild(link);
+//   b.title = "Rockets";
+//   b.href = "index.html";
+//   document.body.appendChild(b);
+
+//   let c = document.getElementById("login");
+//   let c = document.createElement("a");
+//   let link = document.createTextNode("This is link");
+//   c.appendChild(link);
+//   c.title = "Login";
+//   c.href = "index.html";
+//   document.body.appendChild(c);
+// }

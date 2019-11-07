@@ -4,6 +4,7 @@
     background-repeat: no-repeat;
 }
 
+
 .page {
     display: none;
     width: 100%;
@@ -17,13 +18,65 @@
 }
 
 #home {
-    background-image: url("spacexHome.jpg");
-}
-
-#launches {
-    background-image: url("spacexHome.jpg");
+    background-image: url("milkyway.jpg");
 }
 
 #rockets {
-    background-image: url("spacexHome.jpg");
+    background-image: url("milkyway.jpg");
+}
+
+#rocketsInfo {
+    background-image: url("milkyway.jpg");
+}
+
+#companyDescription {
+    background-color: rgba(241, 232, 232, 0.2);
+    box-shadow: 1px 1px 5px white;
+    padding: 15px;
+    margin: 20% 10% 10% 10%;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
+
+#logo img {
+    max-width: 40%;
+}
+
+#buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    bottom: 10%;
+}
+
+a.button1 {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #FFFFFF;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+a.button1:hover {
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+@media all and (max-width:30em) {
+    a.button1 {
+        display: block;
+        margin: 0.4em auto;
+    }
 }
