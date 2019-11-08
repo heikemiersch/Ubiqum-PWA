@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stars.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -15,31 +16,50 @@
 <body>
 
     <main>
+        <section class="wrapper">
+            <div id="stars1"></div>
+            <div id="stars2"></div>
+            <div id="stars3"></div>
 
-        <div class="page active" id="home">
-            <div id="logo1"></div>
-            <div id="companyDescription"></div>
-            <div id="buttons">
-                <a href="#" data-target="home" class="butt-link">Home</a>
-                <a href="#" data-target="rockets" class="butt-link">Rockets</a>
-                <a href="#" data-target="login" class="butt-link">Login</a>
+            <div class="page active" id="home">
+                <div id="logo1"></div>
+                <div id="companyDescription"></div>
+                <div id="buttons">
+                    <a href="#" data-target="home" class="butt-link">Home</a>
+                    <a href="#" data-target="rockets" class="butt-link">Rockets</a>
+                    <a href="#" data-target="login" class="butt-link">Login</a>
+                </div>
             </div>
-        </div>
-        <div class="page" id="rockets">
-            <div id="logo2"></div>
-            <div id="rocketList"></div>
-            <div id="buttons">
-                <a href="#" data-target="home" class="butt-link">Home</a>
-                <a href="#" data-target="rockets" class="butt-link">Rockets</a>
-                <a href="#" data-target="login" class="butt-link">Login</a>
+            <div class="page" id="rockets">
+                <div id="logo2"></div>
+                <div id="rocketList">
+                    <div id="rocketListItem1"><a href="#"></a><img alt="Falcon 1" src="falconone.jpg" width="60"
+                            height="60"></div>
+                    <div id="rocketListItem2"><a href="#"></a><img alt="Falcon 9" src="falconnine.jpg" width="60"
+                            height="60"></div>
+                    <div id="rocketListItem3"><a href="#"></a><img alt="Falcon Heavy" src="falconheavy.jpg" width="60"
+                            height="60"></div>
+                    <div id="rocketListItem4"><a href="#"></a><img alt="Big Falcon Rocket" src="bigfalconrocket.jpg"
+                            width="60" height="60">
+                    </div>
+                    <div id="rocketListItem5"><a href="#"></a><img alt="Dragon 1" src="dragonone.jpg" width="60"
+                            height="60"></div>
+                    <div id="rocketListItem6"><a href="#"></a><img alt="Dragon 2" src="dragontwo.jpeg" width="60"
+                            height="60"></div>
+                </div>
+                <div id="buttons">
+                    <a href="#" data-target="home" class="butt-link">Home</a>
+                    <a href="#" data-target="rockets" class="butt-link">Rockets</a>
+                    <a href="#" data-target="login" class="butt-link">Login</a>
+                </div>
             </div>
-        </div>
-        <div class="page" id="rocketsInfo">
-            <div id="logo"></div>
-            <div id="buttons">
-                <a href="#" class="butt-link">Back</a>
+            <div class="page" id="rocketsInfo">
+                <div id="logo3"></div>
+                <div id="buttons">
+                    <a href="#" class="butt-link">Back</a>
+                </div>
             </div>
-        </div>
+        </section>
 
     </main>
 

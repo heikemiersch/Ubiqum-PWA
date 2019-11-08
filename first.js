@@ -74,13 +74,28 @@ function createFirstPage(info) {
 function createSecondPage(dataRockets) {
   let logo2 = document.getElementById("logo2");
   logo2.innerHTML = '<img src="spacexlogo.jpg">';
-  let
-  // let button = document.createElement("button");
-  // button.innerHTML = '<img src="falconone.jpg">';
+  let rocketDescriptionShort = document.createElement("p");
+  rocketDescriptionShort.innerHTML = dataRockets[0].rocket_name;
+  rocketListItem1.appendChild(rocketDescriptionShort);
 
-  let rocketsAndDragons = document.getElementById("rocketList");
-  rocketsAndDragons.innerHTML = dataRockets[0].rocket_name;
+  // this would create buttons from js, but why, it's static
+
+  // let rocketsAndDragons = document.getElementById("rocketList");
+  // let buttons = document.createElement("img");
+  // buttons.setAttribute("src", "falconone.jpg");
+  // rocketsAndDragons.appendChild(buttons);
 }
+
+// just wrong 
+
+// function createThirdPage() {
+//   document.getElementsByTagName("img").addEventListener("click", function () {
+//     let rocketDescriptionShort = document.createElement("p");
+//     rocketDescriptionShort.setAttribute("src", dataRockets[0].description);
+//     rocketListItem1.appendChild(rocketDescriptionShort);
+//     console.log("Where am I?");
+//   });
+// }
 
 
 // function createButtons() {

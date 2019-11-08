@@ -1,97 +1,110 @@
 * {
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .page {
-  display: none;
-  width: 100%;
-  min-height: 100%;
-  position: fixed;
-  padding: 1rem 2rem;
+    display: none;
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    padding: 1rem 2rem;
 }
 
 /* yeah, cascading style sheets!!! this display will overwrite the one above! */
 .active {
-  display: block;
-}
-
-#home {
-  background-image: url("milkyway.jpg");
-}
-
-#rockets {
-  background-image: url("milkyway.jpg");
-}
-
-#rocketsInfo {
-  background-image: url("milkyway.jpg");
+    display: block;
 }
 
 #companyDescription {
-  background-color: rgba(241, 232, 232, 0.2);
-  box-shadow: 1px 1px 5px white;
-  padding: 15px;
-  margin: 20% 10% 10% 10%;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: bold;
-  color: black;
+    background-color: rgba(241, 232, 232, 0.2);
+    box-shadow: 1px 1px 5px white;
+    padding: 15px;
+    margin: 20% 10% 10% 10%;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
 }
 
 #rocketList {
-  background-color: rgba(241, 232, 232, 0.2);
-  box-shadow: 1px 1px 5px white;
-  padding: 15px;
-  margin: 20% 10% 10% 10%;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: bold;
-  color: black;
+    /* display: flex; */
+    background-color: rgba(241, 232, 232, 0.2);
+    box-shadow: 1px 1px 5px white;
+    padding: 15px;
+    margin: 20% 10% 10% 10%;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    max-height: 400px;
+}
+
+#rocketListItem1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#rocketList img {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
 }
 
 #logo1 img {
-  max-width: 40%;
+    max-width: 40%;
 }
 
 #logo2 img {
-  max-width: 40%;
+    max-width: 40%;
+}
+
+#logo3 img {
+    max-width: 40%;
+}
+
+a.img-link {
+    display: inline;
+    width: 10px;
+    height: 10px;
 }
 
 #buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: 20%;
-  right: 20%;
-  bottom: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    bottom: 5%;
 }
 
 a.butt-link {
-  display: inline-block;
-  padding: 0.35em 1.2em;
-  border: 0.1em solid #ebd9d9;
-  margin: 0 0.3em 0.3em 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  color: #ffffff;
-  text-align: center;
-  transition: all 0.2s;
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #ebd9d9;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.2s;
 }
 
 a.butt-link:hover {
-  color: #0c0c0c;
-  background-color: #7c529e;
+    color: #0c0c0c;
+    background-color: #5f5d74;
 }
 
 @media all and (max-width: 30em) {
-  a.butt-link {
-    display: block;
-    margin: 0.4em auto;
-  }
+    a.butt-link {
+        display: block;
+        margin: 0.4em auto;
+    }
 }
