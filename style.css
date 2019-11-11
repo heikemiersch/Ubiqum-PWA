@@ -29,7 +29,8 @@
 }
 
 #rocketList {
-    /* display: flex; */
+    display: flex;
+    flex-wrap: wrap-reverse;
     background-color: rgba(241, 232, 232, 0.2);
     box-shadow: 1px 1px 5px white;
     padding: 15px;
@@ -41,29 +42,41 @@
     max-height: 400px;
 }
 
-#rocketListItem1 {
+#rocketList img {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+
+/* #rocketListItem1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-
 #rocketList img {
     display: flex;
     flex-wrap: wrap;
     align-self: center;
+} */
+
+#logo1 img,
+#logo2 img,
+#logo3 img,
+#logo4 img {
+    max-width: 40%;
+    position: sticky;
 }
 
-#logo1 img {
-    max-width: 40%;
+#history {
+    color: blanchedalmond;
 }
 
-#logo2 img {
-    max-width: 40%;
-}
-
-#logo3 img {
-    max-width: 40%;
+#historyList {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-top: 5%;
 }
 
 a.img-link {
