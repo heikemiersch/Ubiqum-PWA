@@ -2,70 +2,70 @@ console.log("start");
 
 // fetch data for page 1 //
 fetch("https://api.spacexdata.com/v3/info", {
-  method: "GET"
-})
-  .then(function(response) {
+    method: "GET"
+  })
+  .then(function (response) {
     return response.json();
   })
-  .then(function(info) {
+  .then(function (info) {
     // console.log(info.summary);
     createFirstPage(info);
   })
-  .catch(function(error) {
+  .catch(function (error) {
     console.log(error, "<-- error");
   });
 
-// fetch data for page 2 //
+// fetch data for page 2 and 2a //
 fetch("https://api.spacexdata.com/v3/rockets", {
-  method: "GET"
-})
-  .then(function(response) {
+    method: "GET"
+  })
+  .then(function (response) {
     return response.json();
   })
-  .then(function(dataRockets) {
-    createSecondPage(dataRockets);
-    console.log("this is where createSecondPage should be called");
+  .then(function (rockets) {
+    createSecondPage(rockets);
+    // console.log(rockets[0].description);
   })
-  .catch(function(error) {
+  .catch(function (error) {
     console.log(error, "<-- error");
   });
 
-// fetch more data for page 2 //
+// fetch more data for page 2b //
 fetch("https://api.spacexdata.com/v3/dragons", {
-  method: "GET"
-})
-  .then(function(response) {
+    method: "GET"
+  })
+  .then(function (response) {
     return response.json();
   })
-  .then(function(dataDragons) {})
-  .catch(function(error) {
+  .then(function (dragons) {})
+  .catch(function (error) {
     console.log(error, "<-- error");
   });
 
 // fetch data for page 2a (use if-statements later)//
 fetch("https://api.spacexdata.com/v3/launches", {
-  method: "GET"
-})
-  .then(function(response) {
+    method: "GET"
+  })
+  .then(function (response) {
     return response.json();
   })
-  .then(function(dataLaunches) {})
-  .catch(function(error) {
+  .then(function (launches) {})
+  .catch(function (error) {
     console.log(error, "<-- error");
   });
 
 // fetch data for page 3 (use if-statements later)//
 fetch("https://api.spacexdata.com/v3/history", {
-  method: "GET"
-})
-  .then(function(response) {
+    method: "GET"
+  })
+  .then(function (response) {
     return response.json();
   })
-  .then(function(history) {
+  .then(function (history) {
     createThirdPage(history);
     console.log(history[0].title);
   })
-  .catch(function(error) {
+  .catch(function (error) {
     console.log(error, "<-- error");
   });
 
@@ -77,41 +77,91 @@ function createFirstPage(info) {
   home.innerHTML = info.summary;
 }
 
-function createSecondPage(dataRockets) {
+function createSecondPage(rockets, dragons) {
   let logo2 = document.getElementById("logo2");
   logo2.innerHTML = '<img src="spacexlogo.jpg">';
 
-  // let rocketDescriptionShort = document.createElement("p");
-  // rocketDescriptionShort.innerHTML = dataRockets[0].rocket_name;
-  // rocketListItem1.appendChild(rocketDescriptionShort);
-
-  // this would create buttons from js, i need to do that because of what's coming
+  // this creates clickable images from js and adds event listeners
 
   let rocketListItem1 = document.getElementById("rocketList");
   let imgbtn1 = document.createElement("img");
   imgbtn1.setAttribute("src", "falconone.jpg");
+  imgbtn1.setAttribute("data-position", 0);
+  imgbtn1.addEventListener("click", function (event) {
+    // console.log(event);
+    createPage2a(rockets, event);
+  });
   rocketListItem1.appendChild(imgbtn1);
+
   let rocketListItem2 = document.getElementById("rocketList");
   let imgbtn2 = document.createElement("img");
   imgbtn2.setAttribute("src", "falconnine.jpg");
+  imgbtn2.setAttribute("data-position", 1);
+  imgbtn2.addEventListener("click", function (event) {
+    createPage2a(rockets, event);
+  });
   rocketListItem2.appendChild(imgbtn2);
+
   let rocketListItem3 = document.getElementById("rocketList");
   let imgbtn3 = document.createElement("img");
   imgbtn3.setAttribute("src", "falconheavy.jpg");
+  imgbtn3.setAttribute("data-position", 2);
+  imgbtn3.addEventListener("click", function (event) {
+    createPage2a(rockets, event);
+  });
   rocketListItem3.appendChild(imgbtn3);
+
   let rocketListItem4 = document.getElementById("rocketList");
   let imgbtn4 = document.createElement("img");
   imgbtn4.setAttribute("src", "bigfalconrocket.jpg");
+  imgbtn4.setAttribute("data-position", 3);
+  imgbtn4.addEventListener("click", function (event) {
+    createPage2a(rockets, event);
+  });
   rocketListItem4.appendChild(imgbtn4);
+
   let rocketListItem5 = document.getElementById("rocketList");
   let imgbtn5 = document.createElement("img");
   imgbtn5.setAttribute("src", "dragonone.jpg");
+  imgbtn5.setAttribute("data-position", 4);
+  imgbtn5.addEventListener("click", function (event) {
+    // createPage2b(dragons, event);
+  });
   rocketListItem5.appendChild(imgbtn5);
+
   let rocketListItem6 = document.getElementById("rocketList");
   let imgbtn6 = document.createElement("img");
   imgbtn6.setAttribute("src", "dragontwo.jpeg");
+  imgbtn6.setAttribute("data-position", 5);
+  imgbtn6.addEventListener("click", function (event) {
+    // createPage2b(dragons, event);
+  });
   rocketListItem6.appendChild(imgbtn6);
 }
+
+// now save that stuff in variable and loop
+
+function createPage2a(rockets, event) {
+  for (let i = 0; i < rockets.length; i++) {
+    // console.log(event.target.getAttribute("data-position"));
+    let rocketsInfoList = document.getElementById("rocketsInfoList");
+    let rocketDescription = document.createElement("p");
+    rocketDescription.setAttribute("src", "rockets[i].description");
+    rocketsInfoList.appendChild(rocketDescription);
+    console.log(rockets[i].description);
+  }
+}
+
+// function createPage2b(dragons, event) {
+//   for (let i = 0; i < dragons.length; i++) {
+//     // console.log(event.target.getAttribute("data-position"));
+//     let rocketsInfoList = document.getElementById("rocketsInfoList");
+//     let rocketDescription = document.createElement("p");
+//     rocketDescription.setAttribute("src", "dragons[i].description");
+//     rocketsInfoList.appendChild(rocketDescription);
+//     console.log(dragons[i].description);
+//   }
+// }
 
 function createThirdPage(history) {
   let logo3 = document.getElementById("logo3");
@@ -129,38 +179,12 @@ function createThirdPage(history) {
   }
 }
 
-// function createButtons() {
-//   let a = document.getElementById("home");
-//   let a = document.createElement("a");
-//   let link = document.createTextNode("This is link");
-//   a.appendChild(link);
-//   a.title = "Home";
-//   a.href = "index.html";
-//   document.body.appendChild(a);
-
-//   let b = document.getElementById("rockets");
-//   let b = document.createElement("a");
-//   let link = document.createTextNode("This is link");
-//   b.appendChild(link);
-//   b.title = "Rockets";
-//   b.href = "index.html";
-//   document.body.appendChild(b);
-
-//   let c = document.getElementById("login");
-//   let c = document.createElement("a");
-//   let link = document.createTextNode("This is link");
-//   c.appendChild(link);
-//   c.title = "Login";
-//   c.href = "index.html";
-//   document.body.appendChild(c);
-// }
-
 // make the app change pages although there is only one
 const app = {
   pages: [],
   // oh, this is old fashioned, right? (new Event)
   show: new Event("show"),
-  init: function() {
+  init: function () {
     // grab all pages and save them in pages
     app.pages = document.querySelectorAll(".page");
     // add a listener to all show events to all the pages
@@ -171,10 +195,12 @@ const app = {
     document.querySelectorAll(".butt-link").forEach(link => {
       link.addEventListener("click", app.butt);
     });
+
     history.replaceState({}, "Home", "#home");
     window.addEventListener("popstate", app.poppin);
   },
-  butt: function(event) {
+  // changing status from active to non-active
+  butt: function (event) {
     event.preventDefault();
     let currentPage = event.target.getAttribute("data-target");
     document.querySelector(".active").classList.remove("active");
@@ -182,8 +208,8 @@ const app = {
     history.pushState({}, currentPage, `#${currentPage}`);
     document.getElementById(currentPage).dispatchEvent(app.show);
   },
-  pageShown: function(event) {},
-  poppin: function(event) {
+  pageShown: function (event) {},
+  poppin: function (event) {
     // going to previous page via browserback
     let hash = location.hash.replace("#", "");
     document.querySelector(".active").classList.remove("active");
