@@ -61,6 +61,17 @@
     align-self: center;
 } */
 
+#rocketsInfo {
+    color: rgb(241, 235, 226);
+    font-size: 20px;
+    z-index: 1;
+}
+
+#rocketsInfoList {
+    margin: 20% 7% 7% 7%;
+    z-index: 1;
+}
+
 #logo1 img,
 #logo2 img,
 #logo3 img,
@@ -75,9 +86,11 @@
 }
 
 #historyList {
+    max-width: 90%;
+    max-height: 70%;
     position: absolute;
     overflow-y: scroll;
-    margin-top: 5%;
+    margin-top: 10%;
     z-index: 1;
 }
 
@@ -98,7 +111,8 @@ a.img-link {
     z-index: 2;
 }
 
-a.butt-link {
+a.butt-link,
+a.back-link {
     display: inline-block;
     padding: 0.35em 1.2em;
     border: 0.1em solid #ebd9d9;
@@ -115,7 +129,7 @@ a.butt-link {
 
 a.butt-link:hover {
     color: #0c0c0c;
-    background-color: #5f5d74;
+    background-color: #FFFFFF;
 }
 
 @media all and (max-width: 30em) {
