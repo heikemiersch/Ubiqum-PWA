@@ -1,5 +1,3 @@
-console.log("start");
-
 // fetch data for page 1 //
 fetch("https://api.spacexdata.com/v3/info", {
   method: "GET"
@@ -16,54 +14,91 @@ fetch("https://api.spacexdata.com/v3/info", {
   });
 
 // fetch data for page 2 and 2a //
-fetch("https://api.spacexdata.com/v3/rockets", {
-  method: "GET"
-})
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(rockets) {
-    createSecondPage(rockets);
-    // console.log(rockets[0].description);
+
+let urlArray = [
+  "https://api.spacexdata.com/v3/rockets",
+  "https://api.spacexdata.com/v3/dragons"
+];
+// let finalData = {};
+// Promise.all(
+//   urlArray.map(url => {
+//     fetch(url, {
+//       method: "GET"
+//     }).then(response => {
+//       console.log(response);
+//       return response.json();
+//     });
+//   })
+// )
+//    .then(data => {
+//     console.log(data);
+//     // if(data.length == 2){
+//     //   finalData.dragons = data.push
+//     // }
+//     // else {
+//     //   finalData.rockets = data.
+//     // }
+//     // finalData.push(...data);
+//     // console.log(finalData);
+
+//     // createSecondPage(finalData);
+//     // console.log(rockets[0].description);
+//   })
+//   .catch(function(error) {
+//     console.log(error, "<-- error");
+//   });
+
+Promise.all(urlArray.map(url => fetch(url).then(resp => resp.json())))
+  .then(data => {
+    console.log(data);
+    let rockets = data[0];
+    let dragons = data[1];
+    // console.log(dragons);
+    createSecondPage(rockets, dragons);
   })
   .catch(function(error) {
     console.log(error, "<-- error");
   });
 
-// fetch more data for page 2a //
-fetch("https://api.spacexdata.com/v3/dragons", {
-  method: "GET"
-})
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(dragons) {
-    // createSecondPage(dragons);
-    console.log(Promise);
-  })
-  .catch(function(error) {
-    console.log(error, "<-- error");
-  });
+// two fetches for page 2a (before the promise.all)//
 
-// let promise = Promise.all([promise one, promise two])
-//   .then(result) => {
-//   console.log(result)
+// fetch("https://api.spacexdata.com/v3/rockets", {
+//   method: "GET"
 // })
+//   .then(function(response) {
+//     return response.json();
+//   })
+//   .then(function(rockets) {
+//     createSecondPage(rockets);
+//     // console.log(rockets[0].description);
+//   })
+//   .catch(function(error) {
+//     console.log(error, "<-- error");
+//   });
+
+// fetch("https://api.spacexdata.com/v3/dragons", {
+//   method: "GET"
+// })
+//   .then(function(response) {
+//     return response.json();
+//   })
+//   .then(function(dragons) {
+//     // createSecondPage(dragons);
+//     console.log(Promise);
+//   })
+//   .catch(function(error) {
+//     console.log(error, "<-- error");
+//   });
+
+//   let promise = Promise.all([response.json(rockets), response.json(dragons)])
+//   .then(result) => {
+
+//   console.log(result)
+
 //  .catch (error => console.log(`Error in promises ${error}`))
 
-// fetch data for page 2a (use if-statements later)//
-fetch("https://api.spacexdata.com/v3/launches", {
-  method: "GET"
-})
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(launches) {})
-  .catch(function(error) {
-    console.log(error, "<-- error");
-  });
+// fetch data for page 3 //
 
-// fetch data for page 3 (use if-statements later)//
 fetch("https://api.spacexdata.com/v3/history", {
   method: "GET"
 })
@@ -72,7 +107,7 @@ fetch("https://api.spacexdata.com/v3/history", {
   })
   .then(function(history) {
     createThirdPage(history);
-    console.log(history[0].title);
+    // console.log(history[0].title);
   })
   .catch(function(error) {
     console.log(error, "<-- error");
@@ -87,6 +122,7 @@ function createFirstPage(info) {
 }
 
 function createSecondPage(rockets, dragons) {
+  // console.log(dragons);
   let logo2 = document.getElementById("logo2");
   logo2.innerHTML = '<img src="spacexlogo.jpg">';
 
@@ -96,7 +132,7 @@ function createSecondPage(rockets, dragons) {
   let imgbtn1 = document.createElement("img");
   imgbtn1.setAttribute("src", "falconone.jpg");
   imgbtn1.setAttribute("data-position", 0);
-  imgbtn1.setAttribute("data-target", "rocketsInfo");
+  imgbtn1.setAttribute("data-target", "spacecrafts");
   imgbtn1.addEventListener("click", function(event) {
     // console.log(event);
     createPage2a(rockets, event);
@@ -108,7 +144,7 @@ function createSecondPage(rockets, dragons) {
   let imgbtn2 = document.createElement("img");
   imgbtn2.setAttribute("src", "falconnine.jpg");
   imgbtn2.setAttribute("data-position", 1);
-  imgbtn2.setAttribute("data-target", "rocketsInfo");
+  imgbtn2.setAttribute("data-target", "spacecrafts");
   imgbtn2.addEventListener("click", function(event) {
     createPage2a(rockets, event);
     app.butt(event);
@@ -119,7 +155,7 @@ function createSecondPage(rockets, dragons) {
   let imgbtn3 = document.createElement("img");
   imgbtn3.setAttribute("src", "falconheavy.jpg");
   imgbtn3.setAttribute("data-position", 2);
-  imgbtn3.setAttribute("data-target", "rocketsInfo");
+  imgbtn3.setAttribute("data-target", "spacecrafts");
   imgbtn3.addEventListener("click", function(event) {
     createPage2a(rockets, event);
     app.butt(event);
@@ -130,7 +166,7 @@ function createSecondPage(rockets, dragons) {
   let imgbtn4 = document.createElement("img");
   imgbtn4.setAttribute("src", "bigfalconrocket.jpg");
   imgbtn4.setAttribute("data-position", 3);
-  imgbtn4.setAttribute("data-target", "rocketsInfo");
+  imgbtn4.setAttribute("data-target", "spacecrafts");
   imgbtn4.addEventListener("click", function(event) {
     createPage2a(rockets, event);
     app.butt(event);
@@ -140,57 +176,48 @@ function createSecondPage(rockets, dragons) {
   let rocketListItem5 = document.getElementById("rocketList");
   let imgbtn5 = document.createElement("img");
   imgbtn5.setAttribute("src", "dragonone.jpg");
-  imgbtn5.setAttribute("data-position", 4);
-  // console.log(dragons);
+  imgbtn5.setAttribute("data-position", 0);
+  imgbtn5.setAttribute("data-target", "spacecrafts");
   imgbtn5.addEventListener("click", function(event) {
-    // createPage2a(dragons, event);
-    // app.butt(event);
+    createPage2a(dragons, event);
+    app.butt(event);
   });
   rocketListItem5.appendChild(imgbtn5);
 
   let rocketListItem6 = document.getElementById("rocketList");
   let imgbtn6 = document.createElement("img");
   imgbtn6.setAttribute("src", "dragontwo.jpeg");
-  imgbtn6.setAttribute("data-position", 5);
+  imgbtn6.setAttribute("data-position", 1);
+  imgbtn6.setAttribute("data-target", "spacecrafts");
   imgbtn6.addEventListener("click", function(event) {
-    // createPage2b(dragons, event);
-    // createPage2a(dragons, event);
-    // app.butt(event);
+    createPage2a(dragons, event);
+    console.log(dragons);
+    app.butt(event);
   });
   rocketListItem6.appendChild(imgbtn6);
+  console.log(dragons);
 }
 
-// now save that stuff in variable and loop
-
 function createPage2a(rockets, event) {
-  console.log(rockets);
+  // console.log(dragons.description);
+  console.log(rockets[0].description);
+  console.log(rockets[1].description);
   let logo4 = document.getElementById("logo4");
   logo4.innerHTML = '<img src="spacexlogo.jpg">';
   // for (let i = 0; i < rockets.length; i++) {
   // console.log(event.target.getAttribute("data-position"));
   let selectedRocket = event.target.getAttribute("data-position");
-  let rocketsInfoList = document.getElementById("rocketsInfoList");
-  rocketsInfoList.innerHTML = "";
+  let spacecraftsList = document.getElementById("spacecraftsList");
+  spacecraftsList.innerHTML = "";
   let rocketDescription = document.createElement("p");
   rocketDescription.innerHTML = rockets[selectedRocket].description;
-  rocketsInfoList.appendChild(rocketDescription);
+  spacecraftsList.appendChild(rocketDescription);
   console.log(rockets[selectedRocket].description);
-  // rocketsInfoList.onclick = function() {
+  // spacecraftsList.onclick = function() {
   //   rocketDescription.style.display = "block";
   // };
   // }
 }
-
-// function createPage2b(dragons, event) {
-//   for (let i = 0; i < dragons.length; i++) {
-//     // console.log(event.target.getAttribute("data-position"));
-//     let rocketsInfoList = document.getElementById("rocketsInfoList");
-//     let rocketDescription = document.createElement("p");
-//     rocketDescription.setAttribute("src", "dragons[i].description");
-//     rocketsInfoList.appendChild(rocketDescription);
-//     console.log(dragons[i].description);
-//   }
-// }
 
 function createThirdPage(history) {
   let logo3 = document.getElementById("logo3");
@@ -211,7 +238,6 @@ function createThirdPage(history) {
 // make the app change pages although there is only one
 const app = {
   // pages: [],
-  // oh, this is old fashioned, right? (new Event)
   // show: new Event("show"),
   init: function() {
     // grab all pages and save them in pages

@@ -1,140 +1,120 @@
-/* * {
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-} */
-
 .page {
-    display: none;
-    width: 100%;
-    min-height: 100%;
-    position: fixed;
-    padding: 1rem 2rem;
+  display: none;
+  width: 100%;
+  min-height: 100%;
+  position: fixed;
+  padding: 1rem 2rem;
 }
 
 /* yeah, cascading style sheets!!! this display will overwrite the one above! */
 .active {
-    display: block;
+  display: block;
 }
 
 #companyDescription {
-    /* background-color: rgba(241, 232, 232, 0.2);
-    box-shadow: 1px 1px 5px white;
-    padding: 15px; */
-    margin: 20% 7% 7% 7%;
-    /* border-radius: 10px; */
-    font-size: 20px;
-    /* font-weight: bold; */
-    color: rgb(241, 235, 226);
+  margin: 20% 7% 7% 7%;
+  font-size: 20px;
+  color: rgb(241, 235, 226);
 }
 
 #rocketList {
-    display: flex;
-    flex-wrap: wrap-reverse;
-    /* background-color: rgba(241, 232, 232, 0.2);
-    box-shadow: 1px 1px 5px white;
-    padding: 15px; */
-    margin: 20% 10% 10% 10%;
-    border-radius: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    color: black;
-    max-height: 400px;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  margin: 20% 10% 10% 10%;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  max-height: 400px;
 }
 
 #rocketList img {
-    width: 110px;
-    height: 110px;
-    display: flex;
-    flex-wrap: wrap-reverse;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  flex-wrap: wrap-reverse;
 }
 
-/* #rocketListItem1 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+#spacecrafts {
+  color: rgb(241, 235, 226);
+  font-size: 20px;
+  z-index: 1;
 }
 
-#rocketList img {
-    display: flex;
-    flex-wrap: wrap;
-    align-self: center;
-} */
-
-#rocketsInfo {
-    color: rgb(241, 235, 226);
-    font-size: 20px;
-    z-index: 1;
+#spacecraftsList {
+  margin: 20% 15% 7% 7%;
+  z-index: 1;
 }
 
-#rocketsInfoList {
-    margin: 20% 7% 7% 7%;
-    z-index: 1;
+#historyList {
+  margin-right: 12%;
 }
 
 #logo1 img,
 #logo2 img,
 #logo3 img,
 #logo4 img {
-    max-width: 40%;
-    position: sticky;
-    z-index: 2;
+  max-width: 40%;
+  position: sticky;
+  z-index: 2;
 }
 
-#history {
-    color: rgb(241, 235, 226);
+#history,
+#spacecrafts {
+  color: rgb(241, 235, 226);
 }
 
-#historyList {
-    max-width: 90%;
-    max-height: 70%;
-    position: absolute;
-    overflow-y: scroll;
-    margin-top: 10%;
-    z-index: 1;
+#historyList,
+#spacecraftsList {
+  max-width: 90%;
+  max-height: 70%;
+  position: absolute;
+  overflow-y: scroll;
+  margin-top: 10%;
+  z-index: 1;
 }
 
 a.img-link {
-    display: inline;
-    width: 10px;
-    height: 10px;
+  display: inline;
+  width: 10px;
+  height: 10px;
 }
 
 #buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    left: 20%;
-    right: 20%;
-    bottom: 5%;
-    z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  bottom: 5%;
+  z-index: 2;
 }
 
 a.butt-link,
 a.back-link {
-    display: inline-block;
-    padding: 0.35em 1.2em;
-    border: 0.1em solid #ebd9d9;
-    margin: 0 0.3em 0.3em 0;
-    border-radius: 0.12em;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    color: #ffffff;
-    text-align: center;
-    transition: all 0.2s;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #ebd9d9;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.2s;
 }
 
 a.butt-link:hover {
-    color: #0c0c0c;
-    background-color: #FFFFFF;
+  color: #0c0c0c;
+  background-color: #ffffff;
 }
 
 @media all and (max-width: 30em) {
-    a.butt-link {
-        display: block;
-        margin: 0.4em auto;
-    }
+  a.butt-link {
+    display: block;
+    margin: 0.4em auto;
+  }
 }
