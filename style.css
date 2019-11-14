@@ -17,6 +17,15 @@
   color: rgb(241, 235, 226);
 }
 
+h4 {
+  color: rgb(241, 235, 226);
+  z-index: 1;
+}
+
+.headline {
+  margin-top: 10%;
+}
+
 #rocketList {
   display: flex;
   flex-wrap: wrap-reverse;
@@ -67,7 +76,7 @@
 #historyList,
 #spacecraftsList {
   max-width: 90%;
-  max-height: 70%;
+  max-height: 60%;
   position: absolute;
   overflow-y: scroll;
   margin-top: 10%;
