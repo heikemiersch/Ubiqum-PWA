@@ -22,7 +22,10 @@
             <div id="stars3"></div>
 
             <div class="page active" id="home">
-                <div id="logo1"></div>
+                <div id="header">
+                    <div id="logo1"></div>
+                    <a href="#" data-target="login" class="butt-link">Log In</a>
+                </div>
                 <div id="companyDescription"></div>
                 <div id="buttons">
                     <a href="#" data-target="home" class="butt-link">Home</a>
@@ -41,7 +44,7 @@
                     <a href="#" data-target="home" class="butt-link">Home</a>
                     <a href="#" data-target="rockets" class="butt-link">Rockets</a>
                     <a href="#" data-target="history" class="butt-link">History</a>
-                    <a href="https://www.youtube.com/watch?v=yFE6qQ3ySXE" class="lily-allen">I hate rockets!</a>
+                    <!-- <a href="https://www.youtube.com/watch?v=yFE6qQ3ySXE" class="lily-allen">I hate rockets!</a> -->
                 </div>
             </div>
             <div class="page" id="history">
@@ -59,9 +62,23 @@
             <div class="page" id="spacecrafts">
                 <div id="logo4"></div>
                 <div class="headline">
-                    <h4>Spacecrafts</h4>
+                    <h4 class="spacecraftsTitle"></h4>
                 </div>
                 <div id="spacecraftsList" data-target="rockets-description"></div>
+                <div id="buttons">
+                    <a onclick="goBack()" class="back-link">Back</a>
+                </div>
+            </div>
+            <div class="page" id="login">
+                <form action="/action_page.php">
+                    Username:<br>
+                    <input type="text" name="username">
+                    <br>
+                    Password:<br>
+                    <input type="text" name="password">
+                    <br><br>
+                    <input type="submit" value="Login">
+                </form>
                 <div id="buttons">
                     <a onclick="goBack()" class="back-link">Back</a>
                 </div>

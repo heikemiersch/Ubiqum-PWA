@@ -129,16 +129,22 @@ function createSecondPage(rockets, dragons) {
   // this creates clickable images from js and adds event listeners
 
   let rocketListItem1 = document.getElementById("rocketList");
+  // let spacecraft1 = document.createElement("p");
+  // let rocketName = rockets[0].rocket_name;
+  // spacecraft1.innerText = rocketName;
+
   let imgbtn1 = document.createElement("img");
   imgbtn1.setAttribute("src", "falconone.jpg");
   imgbtn1.setAttribute("data-position", 0);
   imgbtn1.setAttribute("data-target", "spacecrafts");
   imgbtn1.addEventListener("click", function (event) {
     // console.log(event);
+    console.log(rockets[0].rocket_name);
     createPage2a(rockets, event);
     app.butt(event);
   });
   rocketListItem1.appendChild(imgbtn1);
+  // rocketListItem1.appendChild(spacecraft1);
 
   let rocketListItem2 = document.getElementById("rocketList");
   let imgbtn2 = document.createElement("img");
@@ -191,17 +197,16 @@ function createSecondPage(rockets, dragons) {
   imgbtn6.setAttribute("data-target", "spacecrafts");
   imgbtn6.addEventListener("click", function (event) {
     createPage2a(dragons, event);
-    console.log(dragons);
+    // console.log(dragons);
     app.butt(event);
   });
   rocketListItem6.appendChild(imgbtn6);
-  console.log(dragons);
+  // console.log(dragons);
 }
 
-function createPage2a(rockets, event) {
-  // console.log(dragons.description);
-  console.log(rockets[0].description);
-  console.log(rockets[1].description);
+function createPage2a(rockets, event, imgbtn5, imgbtn6) {
+  // console.log(rockets[0].description);
+  // console.log(rockets[1].description);
   let logo4 = document.getElementById("logo4");
   logo4.innerHTML = '<img src="spacexlogo.jpg">';
   // for (let i = 0; i < rockets.length; i++) {
@@ -211,12 +216,20 @@ function createPage2a(rockets, event) {
   spacecraftsList.innerHTML = "";
   let rocketDescription = document.createElement("p");
   rocketDescription.innerHTML = rockets[selectedRocket].description;
+  let rocketsTitle = document.createElement("h4");
+
+  // if (imgbtn5.clicked == true || imgbtn6.clicked == true)
+  if (selectedRocket == imgbtn5 || selectedRocket == imgbtn6) {
+    rocketsTitle.innerHTML = rockets[selectedRocket].name;
+  } else {
+    rocketsTitle.innerHTML = rockets[selectedRocket].rocket_name;
+  };
+
+  // console.log(rocketsTitle);
+
+  spacecraftsList.appendChild(rocketsTitle);
   spacecraftsList.appendChild(rocketDescription);
-  console.log(rockets[selectedRocket].description);
-  // spacecraftsList.onclick = function() {
-  //   rocketDescription.style.display = "block";
-  // };
-  // }
+  console.log(rockets[selectedRocket].name);
 }
 
 function createThirdPage(history) {
@@ -259,7 +272,7 @@ const app = {
     console.log(event);
     event.preventDefault();
     let currentPage = event.target.getAttribute("data-target");
-    console.log(currentPage);
+    // console.log(currentPage);
     document.querySelector(".active").classList.remove("active");
     document.getElementById(currentPage).classList.add("active");
     history.pushState({}, currentPage, `#${currentPage}`);
