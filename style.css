@@ -101,7 +101,8 @@ a.img-link {
 }
 
 a.butt-link,
-a.back-link {
+a.back-link,
+.lily-allen {
   display: inline-block;
   padding: 0.35em 1.2em;
   border: 0.1em solid #ebd9d9;
@@ -116,13 +117,20 @@ a.back-link {
   transition: all 0.2s;
 }
 
-a.butt-link:hover {
+.lily-allen {
+  font-size: 10px;
+}
+
+a.butt-link:hover,
+a.lily-allen:hover {
   color: #0c0c0c;
   background-color: #ffffff;
 }
 
 @media all and (max-width: 30em) {
-  a.butt-link {
+
+  a.butt-link,
+  a.lily-allen {
     display: block;
     margin: 0.4em auto;
   }

@@ -1,15 +1,15 @@
 // fetch data for page 1 //
 fetch("https://api.spacexdata.com/v3/info", {
-  method: "GET"
-})
-  .then(function(response) {
+    method: "GET"
+  })
+  .then(function (response) {
     return response.json();
   })
-  .then(function(info) {
+  .then(function (info) {
     // console.log(info.summary);
     createFirstPage(info);
   })
-  .catch(function(error) {
+  .catch(function (error) {
     console.log(error, "<-- error");
   });
 
@@ -56,7 +56,7 @@ Promise.all(urlArray.map(url => fetch(url).then(resp => resp.json())))
     // console.log(dragons);
     createSecondPage(rockets, dragons);
   })
-  .catch(function(error) {
+  .catch(function (error) {
     console.log(error, "<-- error");
   });
 
@@ -100,16 +100,16 @@ Promise.all(urlArray.map(url => fetch(url).then(resp => resp.json())))
 // fetch data for page 3 //
 
 fetch("https://api.spacexdata.com/v3/history", {
-  method: "GET"
-})
-  .then(function(response) {
+    method: "GET"
+  })
+  .then(function (response) {
     return response.json();
   })
-  .then(function(history) {
+  .then(function (history) {
     createThirdPage(history);
     // console.log(history[0].title);
   })
-  .catch(function(error) {
+  .catch(function (error) {
     console.log(error, "<-- error");
   });
 
@@ -133,7 +133,7 @@ function createSecondPage(rockets, dragons) {
   imgbtn1.setAttribute("src", "falconone.jpg");
   imgbtn1.setAttribute("data-position", 0);
   imgbtn1.setAttribute("data-target", "spacecrafts");
-  imgbtn1.addEventListener("click", function(event) {
+  imgbtn1.addEventListener("click", function (event) {
     // console.log(event);
     createPage2a(rockets, event);
     app.butt(event);
@@ -145,7 +145,7 @@ function createSecondPage(rockets, dragons) {
   imgbtn2.setAttribute("src", "falconnine.jpg");
   imgbtn2.setAttribute("data-position", 1);
   imgbtn2.setAttribute("data-target", "spacecrafts");
-  imgbtn2.addEventListener("click", function(event) {
+  imgbtn2.addEventListener("click", function (event) {
     createPage2a(rockets, event);
     app.butt(event);
   });
@@ -156,7 +156,7 @@ function createSecondPage(rockets, dragons) {
   imgbtn3.setAttribute("src", "falconheavy.jpg");
   imgbtn3.setAttribute("data-position", 2);
   imgbtn3.setAttribute("data-target", "spacecrafts");
-  imgbtn3.addEventListener("click", function(event) {
+  imgbtn3.addEventListener("click", function (event) {
     createPage2a(rockets, event);
     app.butt(event);
   });
@@ -167,7 +167,7 @@ function createSecondPage(rockets, dragons) {
   imgbtn4.setAttribute("src", "bigfalconrocket.jpg");
   imgbtn4.setAttribute("data-position", 3);
   imgbtn4.setAttribute("data-target", "spacecrafts");
-  imgbtn4.addEventListener("click", function(event) {
+  imgbtn4.addEventListener("click", function (event) {
     createPage2a(rockets, event);
     app.butt(event);
   });
@@ -178,7 +178,7 @@ function createSecondPage(rockets, dragons) {
   imgbtn5.setAttribute("src", "dragonone.jpg");
   imgbtn5.setAttribute("data-position", 0);
   imgbtn5.setAttribute("data-target", "spacecrafts");
-  imgbtn5.addEventListener("click", function(event) {
+  imgbtn5.addEventListener("click", function (event) {
     createPage2a(dragons, event);
     app.butt(event);
   });
@@ -189,7 +189,7 @@ function createSecondPage(rockets, dragons) {
   imgbtn6.setAttribute("src", "dragontwo.jpeg");
   imgbtn6.setAttribute("data-position", 1);
   imgbtn6.setAttribute("data-target", "spacecrafts");
-  imgbtn6.addEventListener("click", function(event) {
+  imgbtn6.addEventListener("click", function (event) {
     createPage2a(dragons, event);
     console.log(dragons);
     app.butt(event);
@@ -239,7 +239,7 @@ function createThirdPage(history) {
 const app = {
   // pages: [],
   // show: new Event("show"),
-  init: function() {
+  init: function () {
     // grab all pages and save them in pages
     // app.pages = document.querySelectorAll(".page");
     // add a listener to all show events to all the pages
@@ -255,7 +255,7 @@ const app = {
     window.addEventListener("popstate", app.poppin);
   },
   // changing status from active to non-active
-  butt: function(event) {
+  butt: function (event) {
     console.log(event);
     event.preventDefault();
     let currentPage = event.target.getAttribute("data-target");
@@ -266,7 +266,7 @@ const app = {
     // document.getElementById(currentPage).dispatchEvent(app.show);
   },
   // pageShown: function(event) {},
-  poppin: function(event) {
+  poppin: function (event) {
     // going to previous page via browserback
     let hash = location.hash.replace("#", "");
     document.querySelector(".active").classList.remove("active");
