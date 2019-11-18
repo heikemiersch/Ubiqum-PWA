@@ -46,7 +46,7 @@ h4 {
 }
 
 #spacecrafts {
-  color: rgb(241, 235, 226);
+  color: rgb(211, 183, 142);
   font-size: 20px;
   z-index: 1;
 }
@@ -106,6 +106,7 @@ a.img-link {
   right: 20%;
   bottom: 5%;
   z-index: 2;
+  color: #ffffff;
 }
 
 
@@ -143,4 +144,8 @@ a.lily-allen:hover {
     display: block;
     margin: 0.4em auto;
   }
+}
+
+#login form {
+  color: #ffffff;
 }

@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="stars.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="stars.css">
+    <link rel="stylesheet" href="style.css">
 
     <title>index.html</title>
 </head>
@@ -62,7 +62,7 @@
             <div class="page" id="spacecrafts">
                 <div id="logo4"></div>
                 <div class="headline">
-                    <h4 class="spacecraftsTitle"></h4>
+                    <h4></h4>
                 </div>
                 <div id="spacecraftsList" data-target="rockets-description"></div>
                 <div id="buttons">
@@ -70,15 +70,22 @@
                 </div>
             </div>
             <div class="page" id="login">
-                <form action="/action_page.php">
-                    Username:<br>
-                    <input type="text" name="username">
+                <form>
+                    <h5>Please log in to join the chat!</h5>
                     <br>
-                    Password:<br>
-                    <input type="text" name="password">
+                    <input type="text" name="username" placeholder="please enter username">
+                    <br>
+                    <br>
+                    <input type="text" name="password" placeholder="please enter password">
                     <br><br>
-                    <input type="submit" value="Login">
+                    <input id="loginBtn" type="submit" value="Login">
                 </form>
+                <div id="buttons">
+                    <a onclick="goBack()" class="back-link">Back</a>
+                </div>
+            </div>
+            <div class="page" id="chat">
+                <button onclick="writePost()">Send post</button>
                 <div id="buttons">
                     <a onclick="goBack()" class="back-link">Back</a>
                 </div>
@@ -86,7 +93,12 @@
         </section>
 
     </main>
-
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+    <script src="config.js"></script> -->
+    <script src="second.js"></script>
     <script src="first.js"></script>
 </body>
 
