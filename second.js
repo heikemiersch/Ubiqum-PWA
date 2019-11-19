@@ -3,12 +3,12 @@ firebase.analytics();
 
 console.log(firebase);
 
-var username = "";
-var email = "";
+// let username = "";
+// let email = "";
 // google sign in
-// create an instance of the google provider object
-var provider = new firebase.auth.GoogleAuthProvider();
-var database = firebase.database();
+// create an instance of the google provider object (sign in with google)
+let provider = new firebase.auth.GoogleAuthProvider();
+let database = firebase.firestore();
 
 function login() {
     // to sign in with a pop-up window, call signinwithpopup
@@ -20,10 +20,8 @@ function login() {
             var user = result.user;
             // all that she wants
             username = user.displayName;
-            email = user.email;
-            // console.log("user", user);
-            // console.log("Hello ", username);
-            readPosts();
+            console.log("Hello ", username);
+            // readPosts();
             // ...
         })
         .catch(function (error) {

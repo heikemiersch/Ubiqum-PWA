@@ -70,21 +70,26 @@
                 </div>
             </div>
             <div class="page" id="login">
-                <form>
-                    <h5>Please log in to join the chat!</h5>
-                    <br>
+                <div class="container">
+                    <h5>Please log in with Google to join the chat!</h5>
+                    <!-- <br>
                     <input type="text" name="username" placeholder="please enter username">
                     <br>
                     <br>
                     <input type="text" name="password" placeholder="please enter password">
-                    <br><br>
-                    <input id="loginBtn" type="submit" value="Login">
-                </form>
+                    <br><br> -->
+                    <!-- <input id="loginBtn" type="submit" value="Login"> -->
+                    <div class="buttons">
+                        <button type="button" onclick="login()">Log in!</button>
+                    </div>
+
+                </div>
                 <div id="buttons">
                     <a onclick="goBack()" class="back-link">Back</a>
                 </div>
             </div>
             <div class="page" id="chat">
+                <input id="message" type="text">
                 <button onclick="writePost()">Send post</button>
                 <div id="buttons">
                     <a onclick="goBack()" class="back-link">Back</a>
@@ -93,11 +98,12 @@
         </section>
 
     </main>
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
-    <script src="config.js"></script> -->
+
+    <script src="config.js"></script>
     <script src="second.js"></script>
     <script src="first.js"></script>
 </body>

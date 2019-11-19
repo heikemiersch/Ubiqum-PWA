@@ -50,7 +50,7 @@ let urlArray = [
 
 Promise.all(urlArray.map(url => fetch(url).then(resp => resp.json())))
   .then(data => {
-    console.log(data);
+    // console.log(data);
     let rockets = data[0];
     let dragons = data[1];
     // console.log(dragons);
@@ -139,7 +139,7 @@ function createSecondPage(rockets, dragons) {
   imgbtn1.setAttribute("data-target", "spacecrafts");
   imgbtn1.addEventListener("click", function (event) {
     // console.log(event);
-    console.log(rockets[0].rocket_name);
+    // console.log(rockets[0].rocket_name);
     createPage2a(rockets, event);
     app.butt(event);
   });
@@ -223,8 +223,8 @@ function createPage2a(rockets, event) {
     rocketsTitle.innerHTML = rockets[selectedRocket].rocket_name;
   }
 
-  console.log(event.target.getAttribute("data-position"))
-  console.log(selectedRocket)
+  // console.log(event.target.getAttribute("data-position"))
+  // console.log(selectedRocket)
   spacecraftsList.appendChild(rocketsTitle);
   spacecraftsList.appendChild(rocketDescription);
 }
@@ -266,7 +266,7 @@ const app = {
   },
   // changing status from active to non-active
   butt: function (event) {
-    console.log(event);
+    // console.log(event);
     event.preventDefault();
     let currentPage = event.target.getAttribute("data-target");
     // console.log(currentPage);

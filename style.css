@@ -22,6 +22,12 @@ h4 {
   z-index: 1;
 }
 
+/* h5 {
+  justify-content: center;
+  color: rgb(241, 235, 226);
+  font-size: 20px;
+} */
+
 .headline {
   margin-top: 10%;
 }
@@ -109,7 +115,6 @@ a.img-link {
   color: #ffffff;
 }
 
-
 a.butt-link,
 a.back-link,
 .lily-allen {
@@ -146,6 +151,12 @@ a.lily-allen:hover {
   }
 }
 
-#login form {
+/* #login form {
   color: #ffffff;
+} */
+
+.container {
+
+  color: #ffffff;
+  font-size: 20px;
 }
