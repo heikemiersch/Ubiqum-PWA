@@ -69,18 +69,28 @@
                     <a onclick="goBack()" class="back-link">Back</a>
                 </div>
             </div>
+
+
+
             <div class="page" id="login">
                 <div class="container">
                     <h5>Please log in with Google to join the chat!</h5>
-                    <!-- <br>
-                    <input type="text" name="username" placeholder="please enter username">
-                    <br>
-                    <br>
-                    <input type="text" name="password" placeholder="please enter password">
-                    <br><br> -->
-                    <!-- <input id="loginBtn" type="submit" value="Login"> -->
+
                     <div class="buttons">
-                        <button type="button" onclick="login()">Log in!</button>
+                        <button class="buttoni" type="button" onclick="login()">Log in!</button>
+                    </div>
+                    <div id="onlyWhenLockedIn">
+                        <div id=chat>
+                            <h5>Please leave a comment...</h5>
+                            <input type="text" id="message" onfocus="this.value=''" placeholder="write your comment">
+                            <button class="buttoni" onclick="writeComment()">Send
+                                Comment</button>
+                        </div>
+                        <div id="comments"></div>
+                        <div>
+                            <!-- when do i really want to see this button? -->
+                            <button class="buttoni" type="button" onclick="logout()">Log out!</button>
+                        </div>
                     </div>
 
                 </div>
@@ -88,13 +98,15 @@
                     <a onclick="goBack()" class="back-link">Back</a>
                 </div>
             </div>
-            <div class="page" id="chat">
+
+
+            <!-- <div class="page" id="chat">
                 <input id="message" type="text">
                 <button onclick="writePost()">Send post</button>
                 <div id="buttons">
                     <a onclick="goBack()" class="back-link">Back</a>
                 </div>
-            </div>
+            </div> -->
         </section>
 
     </main>
