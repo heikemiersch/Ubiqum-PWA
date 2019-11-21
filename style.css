@@ -22,12 +22,12 @@ h4 {
   z-index: 1;
 }
 
-h5 {
+/* h5 {
   justify-content: center;
   align-items: center;
   color: rgb(241, 235, 226);
   font-size: 20px;
-}
+} */
 
 .headline {
   margin-top: 10%;
@@ -99,11 +99,12 @@ h5 {
 }
 
 #comments {
-  max-width: 90%;
-  max-height: 40%;
+  color: rgb(241, 235, 226);
+  max-width: 75%;
+  max-height: 50%;
   position: absolute;
   overflow-y: scroll;
-  margin-top: 15%;
+  margin-top: 17%;
   z-index: 1;
 }
 
@@ -166,7 +167,8 @@ a.lily-allen:hover {
   font-size: 20px;
 }
 
-button.buttoni {
+button.buttoni,
+input.buttoni {
   border: 0.1em solid #FFFFFF;
   border-radius: 0.12em;
   font-family: 'Roboto', sans-serif;
@@ -184,4 +186,44 @@ button.buttoni:hover {
     display: block;
     margin: 0.4em auto;
   }
+}
+
+#chat {
+  display: flex;
+  flex-wrap: nowrap;
+  line-height: 20px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 3;
+  /* Sit on top */
+  padding-top: 300px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.loginModal,
+.signupModal {
+  background-color: #d3d8e6;
+  margin: auto;
+  padding: 20px;
+  /* border: 1px solid #888; */
+  width: 80%;
 }

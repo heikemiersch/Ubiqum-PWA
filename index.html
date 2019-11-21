@@ -70,43 +70,53 @@
                 </div>
             </div>
 
-
-
             <div class="page" id="login">
                 <div class="container">
-                    <h5>Please log in with Google to join the chat!</h5>
-
+                    <!-- <h5>Please log in with Google to join the chat!</h5> -->
                     <div class="buttons">
-                        <button class="buttoni" type="button" onclick="login()">Log in!</button>
-                    </div>
-                    <div id="onlyWhenLockedIn">
-                        <div id=chat>
-                            <h5>Please leave a comment...</h5>
-                            <input type="text" id="message" onfocus="this.value=''" placeholder="write your comment">
-                            <button class="buttoni" onclick="writeComment()">Send
-                                Comment</button>
-                        </div>
-                        <div id="comments"></div>
-                        <div>
-                            <!-- when do i really want to see this button? -->
-                            <button class="buttoni" type="button" onclick="logout()">Log out!</button>
-                        </div>
-                    </div>
+                        <button class="buttoni" type="button" onclick="loginGoogle()">Log in with Google
+                            Account</button>
+                        <button class="buttoni" id="modalButton">Log in with email</button>
 
+                    </div>
                 </div>
+
+                <div id="loginPasswordModal" class="modal">
+                    <div class="loginModal">
+                        <input id="loginEmail" type="text" name="username" onfocus="this.value=''"
+                            placeholder="Please enter email">
+                        <input id="loginPassword" type="text" name="password" onfocus="this.value=''"
+                            placeholder="Please enter password">
+                        <button id="loginPasswordBtn" onclick="loginPassword()" type="submit" value="Login">Log
+                            in</button>
+                    </div>
+                    <div class="signupModal">
+                        <input id="signupEmail" type="text" name="username" onfocus="this.value=''"
+                            placeholder="Please enter email">
+                        <input id="signupPassword" type="text" name="password" onfocus="this.value=''"
+                            placeholder="Please enter password">
+                        <button id="loginPasswordBtn" onclick="createAccount()" type="submit" value="Login">Sign
+                            in</button>
+                    </div>
+                </div>
+
+                <div id="onlyWhenLockedIn">
+                    <div id="chat">
+                        <!-- <h5>Please leave a comment...</h5> -->
+                        <input type="text" id="message" onfocus="this.value=''" placeholder="Please leave a comment">
+                        <button class="buttoni" onclick="writeComment()">Send</button>
+                    </div>
+                    <div id="comments"></div>
+                    <div>
+                        <!-- when do i actually want to see this button? -->
+                        <button class="buttoni" type="button" onclick="logout()">Log out!</button>
+                    </div>
+                </div>
+
                 <div id="buttons">
                     <a onclick="goBack()" class="back-link">Back</a>
                 </div>
-            </div>
 
-
-            <!-- <div class="page" id="chat">
-                <input id="message" type="text">
-                <button onclick="writePost()">Send post</button>
-                <div id="buttons">
-                    <a onclick="goBack()" class="back-link">Back</a>
-                </div>
-            </div> -->
         </section>
 
     </main>
