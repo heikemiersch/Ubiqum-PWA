@@ -17,7 +17,7 @@ function loginGoogle() {
   firebase
     .auth()
     .signInWithPopup(provider)
-    .then(function (result) {
+    .then(function(result) {
       // The signed-in user info.
       let user = result.user;
       // all that she wants
@@ -27,7 +27,7 @@ function loginGoogle() {
       readComments();
       // ...
     })
-    .catch(function (error) {
+    .catch(function(error) {
       // Handle Errors here.
       console.log("error", error);
     });
@@ -39,7 +39,8 @@ function createAccount() {
   firebase
     .auth()
     .createUserWithEmailAndPassword(newEmail, newPassword)
-    .catch(function (error) {
+    .then(() => isUser())
+    .catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -48,16 +49,14 @@ function createAccount() {
 
   // readComments();
   // modal.style.display = "none";
-  isUser();
 }
-
 
 // Get the modal
 var modal = document.getElementById("loginPasswordModal");
 // Get the button that opens the modal
 var btn = document.getElementById("modalButton");
 // When the user clicks the button, open the modal
-btn.onclick = function () {
+btn.onclick = function() {
   modal.style.display = "block";
 };
 
@@ -67,9 +66,11 @@ function loginPassword() {
 
   firebase
     .auth()
-    .signInWithEmailAndPassword(userEmail, userPassword).then(() => isUser()).catch(function (error) {
+    .signInWithEmailAndPassword(userEmail, userPassword)
+    .then(() => isUser())
+    .catch(function(error) {
       // Handle Errors here.
-      alert("No valid entry!")
+      alert("Are you kidding me? That ain't no valid entry, man!!!");
       var errorCode = error.code;
       var errorMessage = error.message;
       // ...
@@ -78,12 +79,12 @@ function loginPassword() {
 }
 
 function isUser() {
-  console.log("isUser called")
-  firebase.auth().onAuthStateChanged(function (user) {
+  console.log("isUser called");
+  firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      console.log(user)
+      console.log(user);
       // signedIn = true;
-      // loggedIn = true;
+      loggedIn = true;
       modal.style.display = "none";
       readComments();
     }
@@ -101,14 +102,13 @@ function writeComment() {
       .add({
         message: message,
         name: username,
-        date: date,
-        Name: userEmail
+        date: date
       })
-      .then(function (docRef) {
+      .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
         readComments();
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.error("Error adding document: ", error);
       });
   }
@@ -129,14 +129,9 @@ function readComments() {
         let comment = document.createElement("p");
         let user = document.createElement("p");
         // let dateP = document.createElement("p");
-
         let documents = doc.data();
         console.log(documents);
-        let {
-          name,
-          message,
-          date
-        } = documents;
+        let { name, message, date } = documents;
         user.innerHTML = "(" + name + ")";
         comment.innerHTML = message;
         // dateP.innerHTML = date;
@@ -155,12 +150,12 @@ function logout() {
   firebase
     .auth()
     .signOut()
-    .then(function () {
+    .then(function() {
       // Sign-out successful.
       console.log("Logout successful!");
       loggedIn = false;
     })
-    .catch(function (error) {
+    .catch(function(error) {
       // An error happened.
     });
 }
